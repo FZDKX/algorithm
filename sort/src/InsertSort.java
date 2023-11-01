@@ -13,29 +13,23 @@ public class InsertSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void insertSort(int[] arr){
-        if (arr.length <= 2){
+    public static void insertSort(int[] arr) {
+        if (arr.length < 2) {
             return;
         }
         // 需要进行插入的次数
         for (int i = 1; i < arr.length; i++) {
             // 获取需要插入的元素
-            int num = arr[i];
+            int value = arr[i];
             int index = i;
-            // 找合适的位置
-            for (int j = i - 1; j >= 0; j--) {
-                if (arr[j] > num){
-                    // j元素后移
-                    arr[j+1] = arr[j];
-                    // 记录后移元素下标
-                    index = j;
-                }else {
-                    // 碰到相等或更小的元素，说明已经找到合适位置
-                    break;
-                }
+            // 找合适的位置进行插入
+            while (index - 1 >= 0 && value < arr[index - 1]) {
+                arr[index] = arr[--index];
             }
             // 插入
-            arr[index] = num;
+            if (index != i) {
+                arr[index] = value;
+            }
         }
     }
 
