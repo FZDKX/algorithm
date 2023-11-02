@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * @author 发着呆看星
